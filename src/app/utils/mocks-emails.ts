@@ -1,5 +1,4 @@
 export const EmailList = [
-    "rick.goud@zivver.mail",
     "flore.giraudier@gmail.com",
     "isaac.asimov@gmail.com",
     "name@mail.fr",
