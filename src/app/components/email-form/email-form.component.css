@@ -1,0 +1,63 @@
+h1 {
+    text-align: center;
+    font-size: 30px;
+    color: #26a69a;
+    padding-bottom: 30px; 
+}
+.title-medium {
+    font-size: 20px;
+    margin: 40px 0 0 0;
+    font-weight: 500;
+}
+.alert {
+    padding: 2px;
+    color: #a94442;
+}
+textarea {
+    height: auto;
+    border-color: transparent;
+    border-bottom: 1px solid #a9a9a9;
+    outline-color: transparent;
+    padding-top: 15px;
+    line-height: 1.6em;
+}
+textarea:focus {
+    border-bottom: 1px solid #26A69A;
+    box-shadow: 0 1px 0 0 #26A69A
+}
+textarea:focus+label {
+    color: #26A69A;
+}
+.file-label {
+    left: .75rem;
+    font-size: 1rem;
+    position: relative;
+}
+.pick-file-button {
+    display: block;
+    left: .75rem;
+    position: relative;
+    margin-top: 15px;
+    width: 145px;
+}
+.btn-small {
+    width: 100%;
+}
+.add-files-row ul, .autocomplete-row ul {
+    left: .75rem;
+    position: relative;
+}
+li {
+    display: inline;
+}
+.input-file {
+    display: none;
+}
+.submit-btn {
+    position: absolute;
+    right: 0;
+    margin-bottom: 30px;
+}
+.edit-btn {
+    margin-top: 20px;
+}

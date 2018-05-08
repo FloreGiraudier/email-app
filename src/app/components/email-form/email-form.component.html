@@ -1,0 +1,107 @@
+<div class="container">    
+    <form (ngSubmit)="onSubmit()" #mailForm="ngForm" [hidden]="submitted">
+        <h1>Email sender</h1>
+        <div class="row autocomplete-row">
+            <div class="input-field col s12">
+                <input id="recipients" type="email" class="form-control" 
+                    #recipients="ngModel" (keyup)="filter()"
+                    required email pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+                    [(ngModel)]="model.recipients" name="recipients" autocomplete="off"
+                    placeholder="Start typing a word to see autocompletion (ex: 'mail')">
+                <label for="recipients">To :</label>
+                <div [hidden]="recipients.valid || recipients.pristine || recipients.untouched || filteredList.length > 0" class="alert">
+                    Please enter a valid email
+                </div>
+            </div>
+            <div class="suggestions" *ngIf="filteredList.length > 0">
+                <ul *ngFor="let item of filteredList" >
+                    <li >
+                        <a (click)="select(item)">{{item}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" class="form-control" id="subject" required
+                    [(ngModel)]="model.subject" name="subject" #subject="ngModel">
+                <label for="subject">Subject</label>
+                <div [hidden]="subject.valid || subject.pristine" class="alert">
+                    Subject is required
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea type="text" class="form-control" id="message"  required
+                    [(ngModel)]="model.message" name="message" #message="ngModel" rows="3"></textarea>
+                <label class="textarea-label" for="message">Message</label>
+                <div [hidden]="message.valid || message.pristine" class="alert">
+                    Message is required
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="row add-files-row">
+            <label class="file-label">Add one or more files</label>
+            <label for="file" class="pick-file-button">
+                <a *ngIf="!files" class="waves-effect waves-light btn-small">Pick file(s)</a>
+                <a *ngIf="files" class="waves-effect waves-light btn-small">Change file(s)</a>
+            </label>
+            <input type="file" id="file" name="file" #file class="input-file" 
+                (change)="onChange(file.files)" multiple/>
+            <ul>
+                <li *ngFor="let f of files, let i = index">
+                    <div class="chip">
+                        {{ f.name }}
+                        <i class="close material-icons">close</i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <button class="submit-btn btn waves-effect waves-light" type="submit" name="action" 
+                    [disabled]="!mailForm.form.valid">
+                    Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <div [hidden]="!submitted">
+
+        <h1>Your email has been successfully sent!</h1>
+        <div>
+            <p class="title-medium">Recipients:</p>
+            <p>{{ model.recipients }}</p>
+        </div>
+        <div>
+            <p class="title-medium">Subject:</p>
+            <p>{{ model.subject }}</p>
+        </div>
+        <div>
+            <p class="title-medium">Message</p>
+            <p>{{ model.message }}</p>
+        </div>
+        <div *ngIf="files">
+            <p class="title-medium">File(s)</p>
+            <ul>
+                <li *ngFor="let f of files">
+                    <div class="chip">
+                        {{ f.name }}
+                        <i class="close material-icons">close</i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <button class="edit-btn btn btn-primary" (click)="submitted=false">Edit</button>
+    </div>
+</div>
