@@ -11,7 +11,9 @@ The original version was developed and proposed by [Flore Giraudier](https://git
 Before running it, you would need to execute the next commands: 
 
 `> sudo npm install -g angular-cli@1.0.0-beta.28.3`
+
 `> sudo ng set --global warnings.packageDeprecation=false`
+
 `> npm install`
 
 NB: the 2nd command is required because we are using a deprecated angular-cli version.
