@@ -1,8 +1,25 @@
 # EmailApp
 
+## Description
+
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 
+The original version was developed and proposed by [Flore Giraudier](https://github.com/FloreGiraudier)!
+
+## Prerequisites
+
+Before running it, you would need to execute the next commands: 
+
+`> sudo npm install -g angular-cli@1.0.0-beta.28.3`
+
+`> sudo ng set --global warnings.packageDeprecation=false`
+
+`> npm install`
+
+NB: the 2nd command is required because we are using a deprecated angular-cli version.
+
 ## Development server
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
